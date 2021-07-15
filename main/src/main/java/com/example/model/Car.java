@@ -1,32 +1,50 @@
 package com.example.model;
 
-import java.io.Serializable;
+
+//import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+
+
+
 
 @Entity
-public class Car implements Serializable
+@Table(name = "car")
+public class Car 
 {
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(nullable = false , updatable = false)
+	@Column(name = "car_id",nullable = false , updatable = false)
 	private Long id ; 
 	
+	@Column(name = "car_brand")
 	private String brand;
 	
+	@Column(name = "car_color")
 	private String color;
 	
+	@Column(name = "car_vehicle_number")
 	private String vehicleNumber;
 	
+	@Column(name= "car_price")
 	private Integer price;
 	
+	@Column(name="car_image_url")
 	private String imageUrl;
 
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -81,9 +99,20 @@ public class Car implements Serializable
 				+ ", price=" + price + ", imageUrl=" + imageUrl + "]";
 	}
 
-	public Car() {
+	public Car() 
+	{
+		
+		
+	}
+
+	
+	public Car(String brand, String color, String vehicleNumber, Integer price, String imageUrl) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.brand = brand;
+		this.color = color;
+		this.vehicleNumber = vehicleNumber;
+		this.price = price;
+		this.imageUrl = imageUrl;
 	}
 
 	public Car(Long id, String brand, String color, String vehicleNumber, Integer price, String imageUrl) {
